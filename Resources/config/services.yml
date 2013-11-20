@@ -1,0 +1,7 @@
+parameters:
+#    cl_chill_appointment.example.class: CL\Chill\AppointmentBundle\Example
+
+services:
+#    cl_chill_appointment.example:
+#        class: %cl_chill_appointment.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
