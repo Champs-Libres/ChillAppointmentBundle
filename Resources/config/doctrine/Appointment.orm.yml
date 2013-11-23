@@ -1,0 +1,25 @@
+CL\Chill\AppointmentBundle\Entity\Appointment:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        agent:
+            type: string
+            length: 255
+        date:
+            type: datetime
+        durationTime:
+            type: time
+        remark:
+            type: text
+        attendee:
+            type: boolean
+    manyToOne:
+        notation:
+            targetEntity: Reason
+            nullable: false
+    lifecycleCallbacks: {  }

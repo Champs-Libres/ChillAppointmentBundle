@@ -1,0 +1,30 @@
+appointment:
+    pattern:  /
+    defaults: { _controller: "CLChillAppointmentBundle:Appointment:index" }
+
+appointment_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CLChillAppointmentBundle:Appointment:show" }
+
+appointment_new:
+    pattern:  /new
+    defaults: { _controller: "CLChillAppointmentBundle:Appointment:new" }
+
+appointment_create:
+    pattern:  /create
+    defaults: { _controller: "CLChillAppointmentBundle:Appointment:create" }
+    requirements: { _method: post }
+
+appointment_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CLChillAppointmentBundle:Appointment:edit" }
+
+appointment_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CLChillAppointmentBundle:Appointment:update" }
+    requirements: { _method: post|put }
+
+appointment_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CLChillAppointmentBundle:Appointment:delete" }
+    requirements: { _method: post|delete }

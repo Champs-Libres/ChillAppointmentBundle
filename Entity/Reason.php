@@ -151,4 +151,14 @@ class Reason
     {
         return $this->category;
     }
+
+    /**
+     * Get the string representation of the Reason
+     *
+     * @return String
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

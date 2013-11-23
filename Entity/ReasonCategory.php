@@ -170,4 +170,15 @@ class ReasonCategory
     {
         return $this->reasons;
     }
+
+
+    /**
+     * Get the string representation of the ReasionCategory
+     *
+     * @return String
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

@@ -1,0 +1,22 @@
+CL\Chill\AppointmentBundle\Entity\Reason:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        isActive:
+            type: boolean
+        isBLAPA:
+            type: boolean
+    manyToOne:
+        category:
+            targetEntity: ReasonCategory
+            nullable: false
+            inversedBy: reasons
+    lifecycleCallbacks: {  }
