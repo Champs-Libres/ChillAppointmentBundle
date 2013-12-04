@@ -16,10 +16,13 @@ CL\Chill\AppointmentBundle\Entity\Appointment:
             type: time
         remark:
             type: text
+            nullable: true
         attendee:
             type: boolean
     manyToOne:
-        notation:
+        reason:
             targetEntity: Reason
             nullable: false
+        person:
+            targetEntity: CL\Chill\PersonBundle\Entity\Person
     lifecycleCallbacks: {  }

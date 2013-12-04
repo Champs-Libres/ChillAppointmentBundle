@@ -1,13 +1,16 @@
-{% extends '::base.html.twig' %}
+{% extends "CLChillPersonBundle::layout.html.twig" %}
 
-{% block body -%}
+{% set activeRouteKey = null %}
+
+{% block personcontent %}
+
     <h1>Appointment edit</h1>
 
     {{ form(edit_form) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('appointment') }}">
+        <a href="{{ path('appointment_list', {'idPerson': person.id }) }}">
             Back to the list
         </a>
     </li>

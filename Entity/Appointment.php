@@ -165,7 +165,7 @@ class Appointment
         return $this->attendee;
     }
     /**
-     * @var Reason
+     * @var \CL\Chill\AppointmentBundle\Entity\Reason
      */
     private $reason;
 
@@ -173,10 +173,10 @@ class Appointment
     /**
      * Set reason
      *
-     * @param \Reason $reason
+     * @var \CL\Chill\AppointmentBundle\Entity\Reason
      * @return Appointment
      */
-    public function setReason(\Reason $reason)
+    public function setReason(\CL\Chill\AppointmentBundle\Entity\Reason $reason)
     {
         $this->reason = $reason;
     
@@ -193,31 +193,31 @@ class Appointment
         return $this->reason;
     }
     /**
-     * @var \CL\Chill\AppointmentBundle\Entity\Reason
+     * @var \CL\Chill\PersonBundle\Entity\Person
      */
-    private $notation;
+    private $person;
 
 
     /**
-     * Set notation
+     * Set person
      *
-     * @param \CL\Chill\AppointmentBundle\Entity\Reason $notation
+     * @param \CL\Chill\PersonBundle\Entity\Person $person
      * @return Appointment
      */
-    public function setNotation(\CL\Chill\AppointmentBundle\Entity\Reason $notation = null)
+    public function setPerson(\CL\Chill\PersonBundle\Entity\Person $person = null)
     {
-        $this->notation = $notation;
+        $this->person = $person;
     
         return $this;
     }
 
     /**
-     * Get notation
+     * Get person
      *
-     * @return \CL\Chill\AppointmentBundle\Entity\Reason 
+     * @return \CL\Chill\PersonBundle\Entity\Person 
      */
-    public function getNotation()
+    public function getPerson()
     {
-        return $this->notation;
+        return $this->person;
     }
 }

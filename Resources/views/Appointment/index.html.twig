@@ -1,6 +1,9 @@
-{% extends '::base.html.twig' %}
+{% extends "CLChillPersonBundle::layout.html.twig" %}
 
-{% block body -%}
+{% set activeRouteKey = null %}
+
+{% block personcontent %}
+
     <h1>Appointment list</h1>
 
     <table class="records_list">

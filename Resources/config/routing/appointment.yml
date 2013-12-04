@@ -6,6 +6,10 @@ appointment_show:
     pattern:  /{id}/show
     defaults: { _controller: "CLChillAppointmentBundle:Appointment:show" }
 
+appointment_list:
+    pattern:  /list/for/{idPerson}
+    defaults: { _controller: "CLChillAppointmentBundle:Appointment:listForPerson" }
+
 appointment_new:
     pattern:  /new
     defaults: { _controller: "CLChillAppointmentBundle:Appointment:new" }

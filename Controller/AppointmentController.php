@@ -29,6 +29,28 @@ class AppointmentController extends Controller
             'entities' => $entities,
         ));
     }
+
+    /**
+     * Lists all Appointment entities for a given Person.
+     *
+     */
+    public function listForPersonAction($idPerson)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $person = $em->getRepository('CLChillPersonBundle:Person')->find($idPerson);
+
+        $entities = $em->getRepository('CLChillAppointmentBundle:Appointment')->findByPerson($person);
+
+        if (!$entities) {
+            throw $this->createNotFoundException('Unable to find Appointment for this Person.');
+        }
+
+        return $this->render('CLChillAppointmentBundle:Appointment:index.html.twig', array(
+            'person' => $person,
+            'entities' => $entities,
+        ));
+    }
+
     /**
      * Creates a new Appointment entity.
      *
@@ -95,17 +117,20 @@ class AppointmentController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('CLChillAppointmentBundle:Appointment')->find($id);
+        $appointment = $em->getRepository('CLChillAppointmentBundle:Appointment')->find($id);
+        $person = $appointment->getPerson();
 
-        if (!$entity) {
+        if (!$appointment) {
             throw $this->createNotFoundException('Unable to find Appointment entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('CLChillAppointmentBundle:Appointment:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'appointment' => $appointment,
+            'person' => $person,
+            'delete_form' => $deleteForm->createView(),
+            ));
     }
 
     /**
@@ -116,17 +141,19 @@ class AppointmentController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('CLChillAppointmentBundle:Appointment')->find($id);
+        $appointment = $em->getRepository('CLChillAppointmentBundle:Appointment')->find($id);
+        $person = $appointment->getPerson();
 
-        if (!$entity) {
+        if (!$appointment) {
             throw $this->createNotFoundException('Unable to find Appointment entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createEditForm($appointment);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('CLChillAppointmentBundle:Appointment:edit.html.twig', array(
-            'entity'      => $entity,
+            'appointment'      => $appointment,
+            'person' => $person,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

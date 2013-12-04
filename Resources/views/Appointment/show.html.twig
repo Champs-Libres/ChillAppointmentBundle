@@ -1,45 +1,47 @@
-{% extends '::base.html.twig' %}
+{% extends "CLChillPersonBundle::layout.html.twig" %}
 
-{% block body -%}
+{% set activeRouteKey = null %}
+
+{% block personcontent %}
     <h1>Appointment</h1>
 
     <table class="record_properties">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ entity.id }}</td>
+                <td>{{ appointment.id }}</td>
             </tr>
             <tr>
                 <th>Agent</th>
-                <td>{{ entity.agent }}</td>
+                <td>{{ appointment.agent }}</td>
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{{ entity.date|date('Y-m-d H:i') }}</td>
+                <td>{{ appointment.date|date('Y-m-d H:i') }}</td>
             </tr>
             <tr>
                 <th>Durationtime</th>
-                <td>{{ entity.durationTime|date('H:i') }}</td>
+                <td>{{ appointment.durationTime|date('H:i') }}</td>
             </tr>
             <tr>
                 <th>Remark</th>
-                <td>{{ entity.remark }}</td>
+                <td>{{ appointment.remark }}</td>
             </tr>
             <tr>
                 <th>Attendee</th>
-                <td>{{ entity.attendee }}</td>
+                <td>{{ appointment.attendee }}</td>
             </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('appointment') }}">
+        <a href="{{ path('appointment_list', {'idPerson': person.id }) }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('appointment_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('appointment_edit', { 'id': appointment.id }) }}">
             Edit
         </a>
     </li>
