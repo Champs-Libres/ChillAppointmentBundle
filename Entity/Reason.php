@@ -35,13 +35,6 @@ class Reason
      */
     private $isActive;
 
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="IsBLAPA", type="boolean")
-     */
-    private $isBLAPA;
-
      /**
       * @var CL\Chill\AppointmentBundle\ReasonCategory
       *
@@ -104,29 +97,6 @@ class Reason
     public function getIsActive()
     {
         return $this->isActive;
-    }
-
-    /**
-     * Set isBLAPA
-     *
-     * @param boolean $isBLAPA
-     * @return Reason
-     */
-    public function setIsBLAPA($isBLAPA)
-    {
-        $this->isBLAPA = $isBLAPA;
-    
-        return $this;
-    }
-
-    /**
-     * Get isBLAPA
-     *
-     * @return boolean 
-     */
-    public function getIsBLAPA()
-    {
-        return $this->isBLAPA;
     }
 
     /**

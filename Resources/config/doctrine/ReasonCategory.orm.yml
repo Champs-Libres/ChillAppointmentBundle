@@ -12,8 +12,6 @@ CL\Chill\AppointmentBundle\Entity\ReasonCategory:
             length: 255
         isActive:
             type: boolean
-        isBLAPA:
-            type: boolean
     oneToMany:
         reasons:
             targetEntity: Reason

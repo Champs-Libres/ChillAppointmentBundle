@@ -35,6 +35,7 @@ class ReasonController extends Controller
             'entities' => $entities,
         );
     }
+
     /**
      * Creates a new Reason entity.
      *
@@ -79,6 +80,21 @@ class ReasonController extends Controller
         $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
+    }
+
+    /**
+     * Displays a form to create a new Reason entity.
+     *
+     */
+    public function newAction()
+    {
+        $entity = new Reason();
+        $form   = $this->createCreateForm($entity);
+
+        return $this->render('CLChillAppointmentBundle:Reason:new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
     }
 
     /**

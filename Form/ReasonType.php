@@ -16,8 +16,7 @@ class ReasonType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('isActive')
-            ->add('isBLAPA')
+            ->add('isActive','checkbox', array('required' => false))
             ->add('category')
         ;
     }

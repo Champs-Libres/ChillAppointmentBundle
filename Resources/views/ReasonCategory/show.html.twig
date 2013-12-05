@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends "CLChillMainBundle::layout.html.twig" %}
 
-{% block body -%}
+{% block content %}
     <h1>ReasonCategory</h1>
 
     <table class="record_properties">
@@ -16,10 +16,6 @@
             <tr>
                 <th>Isactive</th>
                 <td>{{ entity.isActive }}</td>
-            </tr>
-            <tr>
-                <th>Isblapa</th>
-                <td>{{ entity.isBLAPA }}</td>
             </tr>
         </tbody>
     </table>

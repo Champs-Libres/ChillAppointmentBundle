@@ -35,6 +35,7 @@ class ReasonCategoryController extends Controller
             'entities' => $entities,
         );
     }
+
     /**
      * Creates a new ReasonCategory entity.
      *
@@ -57,6 +58,8 @@ class ReasonCategoryController extends Controller
             return $this->redirect($this->generateUrl('reasoncategory_show', array('id' => $entity->getId())));
         }
         else {
+            $errors = $form->getErrorsAsString();
+            echo($errors);
             echo 'form is not valid';
         }
 
@@ -83,6 +86,21 @@ class ReasonCategoryController extends Controller
         $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
+    }
+
+    /**
+     * Displays a form to create a new ReasonCategory entity.
+     *
+     */
+    public function newAction()
+    {
+        $entity = new ReasonCategory();
+        $form   = $this->createCreateForm($entity);
+
+        return $this->render('CLChillAppointmentBundle:ReasonCategory:new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
     }
 
     /**

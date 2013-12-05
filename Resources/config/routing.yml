@@ -1,54 +1,14 @@
+#Reason Category
+CLChillAppointmentBundle_reasoncategory:
+        resource: "@CLChillAppointmentBundle/Resources/config/routing/reasoncategory.yml"
+        prefix:   /reasoncategory/
+
+#Reason
+CLChillAppointmentBundle_reason:
+        resource: "@CLChillAppointmentBundle/Resources/config/routing/reason.yml"
+        prefix:   /reason/
+
 #Appointment
 CLChillAppointmentBundle_appointment:
         resource: "@CLChillAppointmentBundle/Resources/config/routing/appointment.yml"
         prefix:   /
-
-#Reason Caterogy
-reasoncategory:
-    pattern: /reasoncategory/
-    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:index }
-
-reasoncategory_create:
-    pattern: /reasoncategory/create
-    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:create }
-
-reasoncategory_update:
-    pattern: /reasoncategory/update/{id}
-    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:update }
-
-reasoncategory_delete:
-    pattern: /reasoncategory/delete/{id}
-    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:delete }
-
-reasoncategory_edit:
-    pattern: /reasoncategory/edit/{id}
-    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:edit }
-
-reasoncategory_show:
-    pattern: /reasoncategory/{id}
-    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:show }
-
-#Reason
-reason:
-    pattern: /reason/
-    defaults: {_controller: CLChillAppointmentBundle:Reason:index }
-
-reason_create:
-    pattern: /reason/create
-    defaults: {_controller: CLChillAppointmentBundle:Reason:create }
-
-reason_update:
-    pattern: /reason/update/{id}
-    defaults: {_controller: CLChillAppointmentBundle:Reason:update }
-
-reason_delete:
-    pattern: /reason/delete/{id}
-    defaults: {_controller: CLChillAppointmentBundle:Reason:delete }
-
-reason_edit:
-    pattern: /reason/edit/{id}
-    defaults: {_controller: CLChillAppointmentBundle:Reason:edit }
-
-reason_show:
-    pattern: /reason/{id}
-    defaults: {_controller: CLChillAppointmentBundle:Reason:show }

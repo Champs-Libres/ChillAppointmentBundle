@@ -1,0 +1,27 @@
+reasoncategory:
+    pattern: /
+    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:index }
+
+reasoncategory_new:
+    pattern:  /new
+    defaults: { _controller: "CLChillAppointmentBundle:ReasonCategory:new" }
+
+reasoncategory_create:
+    pattern: /create
+    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:create }
+
+reasoncategory_update:
+    pattern: /update/{id}
+    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:update }
+
+reasoncategory_delete:
+    pattern: /delete/{id}
+    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:delete }
+
+reasoncategory_edit:
+    pattern: /edit/{id}
+    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:edit }
+
+reasoncategory_show:
+    pattern: /{id}
+    defaults: {_controller: CLChillAppointmentBundle:ReasonCategory:show }

@@ -36,12 +36,6 @@ class ReasonCategory
      */
     private $isActive;
 
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="IsBLAPA", type="boolean")
-     */
-    private $isBLAPA;
 
     /**
      * @var ArrayCollection
@@ -107,28 +101,6 @@ class ReasonCategory
         return $this->isActive;
     }
 
-    /**
-     * Set isBLAPA
-     *
-     * @param boolean $isBLAPA
-     * @return ReasonCategory
-     */
-    public function setIsBLAPA($isBLAPA)
-    {
-        $this->isBLAPA = $isBLAPA;
-    
-        return $this;
-    }
-
-    /**
-     * Get isBLAPA
-     *
-     * @return boolean 
-     */
-    public function getIsBLAPA()
-    {
-        return $this->isBLAPA;
-    }
     /**
      * Constructor
      */

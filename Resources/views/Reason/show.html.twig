@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends "CLChillMainBundle::layout.html.twig" %}
 
-{% block body -%}
+{% block content %}
     <h1>Reason</h1>
 
     <table class="record_properties">
@@ -14,12 +14,11 @@
                 <td>{{ entity.name }}</td>
             </tr>
             <tr>
+                <th>Catégorie</th>
+                <td>{{ entity.category }}</td>
+            <tr>
                 <th>Isactive</th>
                 <td>{{ entity.isActive }}</td>
-            </tr>
-            <tr>
-                <th>Isblapa</th>
-                <td>{{ entity.isBLAPA }}</td>
             </tr>
         </tbody>
     </table>
