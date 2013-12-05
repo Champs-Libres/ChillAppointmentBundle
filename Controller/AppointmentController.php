@@ -34,10 +34,10 @@ class AppointmentController extends Controller
      * Lists all Appointment entities for a given Person.
      *
      */
-    public function listForPersonAction($idPerson)
+    public function listForPersonAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $person = $em->getRepository('CLChillPersonBundle:Person')->find($idPerson);
+        $person = $em->getRepository('CLChillPersonBundle:Person')->find($id);
 
         $entities = $em->getRepository('CLChillAppointmentBundle:Appointment')->findByPerson($person);
 

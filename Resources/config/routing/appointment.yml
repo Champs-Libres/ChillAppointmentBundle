@@ -7,8 +7,12 @@ appointment_show:
     defaults: { _controller: "CLChillAppointmentBundle:Appointment:show" }
 
 appointment_list:
-    pattern:  /list/for/{idPerson}
+    pattern:  /list/for/person/{id}
     defaults: { _controller: "CLChillAppointmentBundle:Appointment:listForPerson" }
+    options:
+        menu: person
+        order: 150
+        label: menu.person.appointment
 
 appointment_new:
     pattern:  /new
