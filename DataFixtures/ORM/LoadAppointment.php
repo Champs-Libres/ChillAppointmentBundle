@@ -9,21 +9,24 @@ use CL\Chill\PersonBundle\Entity\Person;
 use CL\Chill\AppointmentBundle\Entity\Appointment;
 
 /**
- * Load people into database
+ * Load appointment into database
  */
-class LoadAppointment extends AbstractFixture {
+class LoadAppointment extends AbstractFixture implements OrderedFixtureInterface  {
+
+    public function getOrder() {
+        return 2600;
+    }
 
 	public function load(ObjectManager $manager) {
         echo "loading appointment...\n";
 
         $persons = $manager->getRepository('CLChillPersonBundle:Person')->findAll();
         $persons_nbr = count($persons);
-        echo(rand(0,$persons_nbr));
         
         $i = 0;
         
         do {
-        	echo "add an appointment...";
+        	echo "a{$i} ";
             $i++;
 
             $appointment = array(
