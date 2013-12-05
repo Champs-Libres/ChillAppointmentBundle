@@ -98,12 +98,17 @@ class AppointmentController extends Controller
      * Displays a form to create a new Appointment entity.
      *
      */
-    public function newAction()
+    public function newForPersonAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+        $person = $em->getRepository('CLChillPersonBundle:Person')->find($id);
+
         $entity = new Appointment();
+        $entity->setPerson($person);
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('CLChillAppointmentBundle:Appointment:new.html.twig', array(
+        return $this->render('CLChillAppointmentBundle:Appointment:newForPerson.html.twig', array(
+            'person' => $person,
             'entity' => $entity,
             'form'   => $form->createView(),
         ));

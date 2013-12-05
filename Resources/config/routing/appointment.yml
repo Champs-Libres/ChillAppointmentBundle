@@ -6,17 +6,25 @@ appointment_show:
     pattern:  /{id}/show
     defaults: { _controller: "CLChillAppointmentBundle:Appointment:show" }
 
-appointment_list:
+appointment_new_for_person:
+    pattern:  /new/for/person/{id}
+    defaults: { _controller: "CLChillAppointmentBundle:Appointment:newForPerson" }
+    options:
+        menu: person
+        order: 150
+        label: menu.person.appointment_new
+
+appointment_list_for_person:
     pattern:  /list/for/person/{id}
     defaults: { _controller: "CLChillAppointmentBundle:Appointment:listForPerson" }
     options:
         menu: person
-        order: 150
-        label: menu.person.appointment
+        order: 200
+        label: menu.person.appointment_list
 
 appointment_new:
     pattern:  /new
-    defaults: { _controller: "CLChillAppointmentBundle:Appointment:new" }
+    defaults: { _controller: "CLChillAppointmentBundle:Appointment:new"}
 
 appointment_create:
     pattern:  /create

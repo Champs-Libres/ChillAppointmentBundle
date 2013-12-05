@@ -1,6 +1,8 @@
-{% extends '::base.html.twig' %}
+{% extends "CLChillPersonBundle::layout.html.twig" %}
 
-{% block content %}
+{% set activeRouteKey = null %}
+
+{% block personcontent %}
     <h1>Appointment creation</h1>
 
     {{ form(form) }}

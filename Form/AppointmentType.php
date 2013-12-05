@@ -15,11 +15,17 @@ class AppointmentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('agent')
             ->add('date', 'date', array('required' => false, 'widget' => 'single_text'))
             ->add('durationTime', 'time')
             ->add('remark', 'textarea', array('required' => false))
             ->add('attendee', 'checkbox', array('required' => false))
             ->add('reason')
+            ->add('person', 'entity', array(
+                'class' => 'CL\Chill\PersonBundle\Entity\Person',
+                'read_only' => TRUE,
+                'disabled' => TRUE
+                ))
         ;
     }
     
