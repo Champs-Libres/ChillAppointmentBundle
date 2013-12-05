@@ -108,6 +108,7 @@ class Reason
     public function setCategory(\CL\Chill\AppointmentBundle\Entity\ReasonCategory $category)
     {
         $this->category = $category;
+        $category->addReason($this);
         return $this;
     }
 

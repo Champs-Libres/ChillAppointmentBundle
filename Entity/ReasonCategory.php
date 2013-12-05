@@ -115,11 +115,12 @@ class ReasonCategory
      * @param \CL\Chill\AppointmentBundle\Entity\Reason $reasons
      * @return ReasonCategory
      */
-    public function addReason(\CL\Chill\AppointmentBundle\Entity\Reason $reasons)
+    public function addReason(\CL\Chill\AppointmentBundle\Entity\Reason $aReason)
     {
-        $this->reasons[] = $reasons;
-        $reasons->setCategory($this);
-    
+        if(! $this->reasons->contains($aReason)) {
+            $this->reasons[] = $aReason;
+            $aReason->setCategory($this);
+        }
         return $this;
     }
 
