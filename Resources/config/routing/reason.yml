@@ -1,6 +1,11 @@
 reason:
     pattern: /
     defaults: {_controller: CLChillAppointmentBundle:Reason:index }
+    options:
+        menu: admin_appointment
+        label: menu.Appointment.admin.reason.list.title
+        helper: menu.Appointment.admin.reason.list.helper
+        order: 100
 
 reason_new:
     pattern:  /new

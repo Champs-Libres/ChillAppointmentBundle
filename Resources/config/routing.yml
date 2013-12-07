@@ -12,3 +12,13 @@ CLChillAppointmentBundle_reason:
 CLChillAppointmentBundle_appointment:
         resource: "@CLChillAppointmentBundle/Resources/config/routing/appointment.yml"
         prefix:   /
+        
+#admin
+chill_appointment_admin:
+    pattern: /admin
+    defaults: { _controller: CLChillAppointmentBundle:Admin:index }
+    options:
+        menu: admin
+        label: menu.Appointment.index.title
+        helper: menu.Appointment.index.helper
+        order: 200
