@@ -4,24 +4,22 @@
 
 {% block personcontent %}
 
-    <h1>Appointment list</h1>
+    <h2>{{ 'views.appointment.appointment_list' | trans }}</h2>
 
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Agent</th>
-                <th>Date</th>
-                <th>Durationtime</th>
-                <th>Remark</th>
-                <th>Attendee</th>
-                <th>Actions</th>
+                <th>{{ 'appointment.agent' | trans }}</th>
+                <th>{{ 'appointment.date' | trans }}</th>
+                <th>{{ 'appointment.durationTime' | trans }}</th>
+                <th>{{ 'appointment.remark' | trans }}</th>
+                <th>{{ 'appointment.attendee' | trans }}</th>
+                <th>{{ 'views.Common.actions' | trans }}</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('appointment_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.agent }}</td>
                 <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i') }}{% endif %}</td>
                 <td>{{ entity.durationTime|date('H:i') }}</td>
@@ -30,10 +28,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('appointment_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('appointment_show', { 'id': entity.id }) }}">{{ 'views.Common.show' | trans }}</a>
                     </li>
                     <li>
-                        <a href="{{ path('appointment_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('appointment_edit', { 'id': entity.id }) }}">{{ 'views.Common.edit' | trans }}</a>
                     </li>
                 </ul>
                 </td>
@@ -44,8 +42,8 @@
 
         <ul>
         <li>
-            <a href="{{ path('appointment_new') }}">
-                Create a new entry
+            <a href="{{ path('appointment_new_for_person', { 'id': person.id }) }}">
+                {{ 'views.appointment.create_a_new_appointment' | trans }}
             </a>
         </li>
     </ul>

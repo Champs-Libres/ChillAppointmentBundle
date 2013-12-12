@@ -4,14 +4,14 @@
 
 {% block personcontent %}
 
-    <h1>Appointment edit</h1>
+    <h2>{{ 'views.appointment.appointment_edit' | trans }}</h2>
 
     {{ form(edit_form) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('appointment_list', {'idPerson': person.id }) }}">
-            Back to the list
+        <a href="{{ path('appointment_list_for_person', {'id': person.id }) }}">
+            {{ 'views.appointment.back_to_the_appointments_list' | trans }}
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

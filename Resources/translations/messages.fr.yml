@@ -1,0 +1,20 @@
+appointment:
+    agent: Agent
+    date: Date
+    durationTime: Durée de l'entretien
+    remark: Remarque
+    attendee: Présence
+    reason: Raison
+    person: Personne
+
+menu:
+    appointment:
+        new: Ajouter un entretien
+        list: Voir tous les entretiens
+
+views:
+    appointment:
+        create_a_new_appointment: Ajouter un nouvel entretien
+        back_to_the_appointments_list: Retour à la liste des entretiens
+        appointment_list: Liste des entretiens
+        appointment_edit: Modifier un entretien

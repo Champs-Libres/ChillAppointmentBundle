@@ -12,7 +12,7 @@ appointment_new_for_person:
     options:
         menu: person
         order: 150
-        label: menu.person.appointment_new
+        label: menu.appointment.new
 
 appointment_list_for_person:
     pattern:  /list/for/person/{id}
@@ -20,7 +20,7 @@ appointment_list_for_person:
     options:
         menu: person
         order: 200
-        label: menu.person.appointment_list
+        label: menu.appointment.list
 
 appointment_new:
     pattern:  /new

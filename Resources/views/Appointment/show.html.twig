@@ -3,32 +3,28 @@
 {% set activeRouteKey = null %}
 
 {% block personcontent %}
-    <h1>Appointment</h1>
+    <h2>Appointment</h2>
 
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ appointment.id }}</td>
-            </tr>
-            <tr>
-                <th>Agent</th>
+                <th>{{ 'appointment.agent' | trans }}</th>
                 <td>{{ appointment.agent }}</td>
             </tr>
             <tr>
-                <th>Date</th>
+                <th>{{ 'appointment.date' | trans }}</th>
                 <td>{{ appointment.date|date('Y-m-d H:i') }}</td>
             </tr>
             <tr>
-                <th>Durationtime</th>
+                <th>{{ 'appointment.durationTime' | trans }}</th>
                 <td>{{ appointment.durationTime|date('H:i') }}</td>
             </tr>
             <tr>
-                <th>Remark</th>
+                <th>{{ 'appointment.remark' | trans }}</th>
                 <td>{{ appointment.remark }}</td>
             </tr>
             <tr>
-                <th>Attendee</th>
+                <th>{{ 'appointment.attendee' | trans }}</th>
                 <td>{{ appointment.attendee }}</td>
             </tr>
         </tbody>
@@ -37,12 +33,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('appointment_list_for_person', {'id': person.id }) }}">
-            Back to the list
+            {{ 'views.appointment.back_to_the_appointments_list' | trans }}
         </a>
     </li>
     <li>
         <a href="{{ path('appointment_edit', { 'id': appointment.id }) }}">
-            Edit
+            {{ 'views.Common.edit' | trans }}
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
