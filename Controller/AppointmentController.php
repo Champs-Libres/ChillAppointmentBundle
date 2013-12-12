@@ -4,7 +4,6 @@ namespace CL\Chill\AppointmentBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use CL\Chill\AppointmentBundle\Entity\Appointment;
 use CL\Chill\AppointmentBundle\Form\AppointmentType;
 
@@ -14,22 +13,6 @@ use CL\Chill\AppointmentBundle\Form\AppointmentType;
  */
 class AppointmentController extends Controller
 {
-
-    /**
-     * Lists all Appointment entities.
-     *
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('CLChillAppointmentBundle:Appointment')->findAll();
-
-        return $this->render('CLChillAppointmentBundle:Appointment:index.html.twig', array(
-            'entities' => $entities,
-        ));
-    }
-
     /**
      * Lists all Appointment entities for a given Person.
      *
@@ -45,7 +28,7 @@ class AppointmentController extends Controller
             throw $this->createNotFoundException('Unable to find Appointment for this Person.');
         }
 
-        return $this->render('CLChillAppointmentBundle:Appointment:index.html.twig', array(
+        return $this->render('CLChillAppointmentBundle:Appointment:listForPerson.html.twig', array(
             'person' => $person,
             'entities' => $entities,
         ));
@@ -69,7 +52,7 @@ class AppointmentController extends Controller
             return $this->redirect($this->generateUrl('appointment_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('CLChillAppointmentBundle:Appointment:new.html.twig', array(
+        return $this->render('CLChillAppointmentBundle:Appointment:newForPerson.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
