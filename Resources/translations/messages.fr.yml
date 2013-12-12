@@ -18,3 +18,4 @@ views:
         back_to_the_appointments_list: Retour à la liste des entretiens
         appointment_list: Liste des entretiens
         appointment_edit: Modifier un entretien
+        appointment_creation: Ajout d'un nouvel entretien
