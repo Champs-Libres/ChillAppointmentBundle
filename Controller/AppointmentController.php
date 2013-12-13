@@ -70,9 +70,8 @@ class AppointmentController extends Controller
         $form = $this->createForm(new AppointmentType(), $entity, array(
             'action' => $this->generateUrl('appointment_create'),
             'method' => 'POST',
+            'em' => $this->getDoctrine()->getManager(),
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -140,7 +139,7 @@ class AppointmentController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('CLChillAppointmentBundle:Appointment:edit.html.twig', array(
-            'appointment'      => $appointment,
+            'appointment' => $appointment,
             'person' => $person,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -159,9 +158,8 @@ class AppointmentController extends Controller
         $form = $this->createForm(new AppointmentType(), $entity, array(
             'action' => $this->generateUrl('appointment_update', array('id' => $entity->getId())),
             'method' => 'PUT',
+            'em' => $this->getDoctrine()->getManager(),
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
@@ -201,22 +199,25 @@ class AppointmentController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
+        $em = $this->getDoctrine()->getManager();
+        $appointment = $em->getRepository('CLChillAppointmentBundle:Appointment')->find($id);
+
+        if (!$appointment) {
+            throw $this->createNotFoundException('Unable to find Appointment entity.');
+        }
+
+        $person = $appointment->getPerson();
+        $idPerson = $person->getId();
+
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('CLChillAppointmentBundle:Appointment')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Appointment entity.');
-            }
-
-            $em->remove($entity);
+            $em->remove($appointment);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('appointment'));
+        return $this->redirect($this->generateUrl('appointment_list_for_person', array('id' => $idPerson)));
     }
 
     /**
@@ -231,7 +232,6 @@ class AppointmentController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('appointment_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
     }

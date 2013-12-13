@@ -5,6 +5,7 @@ namespace CL\Chill\AppointmentBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use CL\Chill\PersonBundle\Form\DataTransformer\PersonToIdTransformer;
 
 class AppointmentType extends AbstractType
 {
@@ -14,6 +15,9 @@ class AppointmentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $entityManager = $options['em'];
+        $transformer = new PersonToIdTransformer($entityManager);
+
         $builder
             ->add('agent')
             ->add('date', 'date', array('required' => false, 'widget' => 'single_text'))
@@ -21,11 +25,9 @@ class AppointmentType extends AbstractType
             ->add('remark', 'textarea', array('required' => false))
             ->add('attendee', 'checkbox', array('required' => false))
             ->add('reason')
-            ->add('person', 'entity', array(
-                'class' => 'CL\Chill\PersonBundle\Entity\Person',
-                'read_only' => TRUE,
-                'disabled' => TRUE
-                ))
+            ->add(
+                $builder->create('person', 'hidden')
+                    ->addModelTransformer($transformer))   
         ;
     }
     
@@ -34,9 +36,16 @@ class AppointmentType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'CL\Chill\AppointmentBundle\Entity\Appointment'
-        ));
+        $resolver
+            ->setDefaults(array(
+                'data_class' => 'CL\Chill\AppointmentBundle\Entity\Appointment'
+            ))
+            ->setRequired(array(
+                'em',
+            ))
+            ->setAllowedTypes(array(
+                'em' => 'Doctrine\Common\Persistence\ObjectManager',
+            ));
     }
 
     /**

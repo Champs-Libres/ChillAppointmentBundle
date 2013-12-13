@@ -41,6 +41,17 @@
             {{ 'views.Common.edit' | trans }}
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+
+    {{ form_start(delete_form) }}
+
+    {{ form_rest(delete_form) }}        
+            
+    <div class="form_control">
+        <div class="medium danger btn icon-right entypo icon-user-add">
+            <button type="submit">{{ 'views.Common.delete'|trans }}</button>
+        </div>
+    </div>
+    
+    {{ form_end(delete_form) }}
 </ul>
 {% endblock %}

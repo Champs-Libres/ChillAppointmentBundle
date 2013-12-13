@@ -6,7 +6,24 @@
 
     <h2>{{ 'views.appointment.appointment_edit' | trans }}</h2>
 
-    {{ form(edit_form) }}
+    {{ form_start(edit_form) }}
+            
+	{{ form_row(edit_form.agent, { 'label' : 'appointment.agent'|trans }) }} 
+	{{ form_row(edit_form.date, { 'label' : 'appointment.date'|trans }) }}   
+	{{ form_row(edit_form.durationTime, { 'label' : 'appointment.durationTime'|trans }) }} 
+	{{ form_row(edit_form.remark, { 'label' : 'appointment.remark'|trans }) }}
+	{{ form_row(edit_form.attendee, { 'label' : 'appointment.attendee'|trans }) }}
+	{{ form_row(edit_form.reason, { 'label' : 'appointment.reason'|trans }) }}
+
+	{{ form_rest(edit_form) }}        
+            
+    <div class="form_control">
+        <div class="medium success btn icon-right entypo icon-user-add">
+            <button type="submit">{{ 'views.Common.edit'|trans }}</button>
+        </div>
+   	</div>
+    
+	{{ form_end(edit_form) }}
 
         <ul class="record_actions">
     <li>
@@ -14,6 +31,18 @@
             {{ 'views.appointment.back_to_the_appointments_list' | trans }}
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    <li>
+    {{ form_start(delete_form) }}
+
+	{{ form_rest(delete_form) }}        
+            
+    <div class="form_control">
+        <div class="medium danger btn icon-right entypo icon-user-add">
+            <button type="submit">{{ 'views.Common.delete'|trans }}</button>
+        </div>
+   	</div>
+    
+	{{ form_end(delete_form) }}
+    </li>
 </ul>
 {% endblock %}
