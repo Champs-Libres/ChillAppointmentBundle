@@ -13,6 +13,7 @@
                 <th>{{ 'appointment.date' | trans }}</th>
                 <th>{{ 'appointment.durationTime' | trans }}</th>
                 <th>{{ 'appointment.remark' | trans }}</th>
+                <th>{{ 'appointment.reason' | trans }}</th>
                 <th>{{ 'appointment.attendee' | trans }}</th>
                 <th>{{ 'views.Common.actions' | trans }}</th>
             </tr>
@@ -24,6 +25,7 @@
                 <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i') }}{% endif %}</td>
                 <td>{{ entity.durationTime|date('H:i') }}</td>
                 <td>{{ entity.remark }}</td>
+                <td>{{ entity.reason }}</td>
                 <td>{{ entity.attendee }}</td>
                 <td>
                 <ul>
