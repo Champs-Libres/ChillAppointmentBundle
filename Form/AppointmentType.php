@@ -20,7 +20,7 @@ class AppointmentType extends AbstractType
 
         $builder
             ->add('agent')
-            ->add('date', 'date', array('required' => false, 'widget' => 'single_text'))
+            ->add('date', 'date', array('required' => false, 'widget' => 'single_text', 'format' => 'dd-MM-yyyy'))
             ->add('durationTime', 'time')
             ->add('remark', 'textarea', array('required' => false))
             ->add('attendee', 'checkbox', array('required' => false))
