@@ -55,6 +55,7 @@ class AppointmentController extends Controller
         return $this->render('CLChillAppointmentBundle:Appointment:newForPerson.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'person' => $entity->getPerson(),
         ));
     }
 
