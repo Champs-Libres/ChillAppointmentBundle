@@ -20,11 +20,13 @@ class AppointmentType extends AbstractType
 
         $builder
             ->add('agent')
-            ->add('date', 'date', array('required' => false, 'widget' => 'single_text', 'format' => 'dd-MM-yyyy'))
+            ->add('date', 'date', array('widget' => 'single_text', 'format' => 'dd-MM-yyyy'))
             ->add('durationTime', 'time')
             ->add('remark', 'textarea', array('required' => false))
             ->add('attendee', 'checkbox', array('required' => false))
-            ->add('reason')
+            ->add('reason', 'entity', array(
+                'class' => 'CLChillAppointmentBundle:Reason',
+                'empty_value' => '', ))
             ->add(
                 $builder->create('person', 'hidden')
                     ->addModelTransformer($transformer))   
