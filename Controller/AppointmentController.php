@@ -192,6 +192,7 @@ class AppointmentController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'person' => $entity->getPerson(),
         ));
     }
     /**
