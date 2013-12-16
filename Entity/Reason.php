@@ -77,6 +77,17 @@ class Reason
     }
 
     /**
+     * Get name with the category name
+     *
+     * @return string 
+     */
+    public function getNameWithCategoryName()
+    {
+        return ''.$this->getCategoryName().' > '.$this->name;
+    }
+
+
+    /**
      * Set isActive
      *
      * @param boolean $isActive
@@ -120,6 +131,16 @@ class Reason
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Get category name
+     *
+     * @return \CL\Chill\AppointmentBundle\Entity\ReasonCategory 
+     */
+    public function getCategoryName()
+    {
+        return $this->category->getName();
     }
 
     /**

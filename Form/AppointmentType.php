@@ -26,7 +26,10 @@ class AppointmentType extends AbstractType
             ->add('attendee', 'checkbox', array('required' => false))
             ->add('reason', 'entity', array(
                 'class' => 'CLChillAppointmentBundle:Reason',
-                'empty_value' => '', ))
+                'property' => 'name',
+                'group_by'=> 'categoryName',
+                'empty_value' => '',
+                ))
             ->add(
                 $builder->create('person', 'hidden')
                     ->addModelTransformer($transformer))   

@@ -27,7 +27,7 @@
                     <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i') }}{% endif %}</td>
                     <td>{{ entity.durationTime|date('H:i') }}</td>
                     <td>{{ entity.remark }}</td>
-                    <td>{{ entity.reason }}</td>
+                    <td>{{ entity.reason.nameWithCategoryName }}</td>
                     <td>
                         {% if  entity.attendee %}
                             {{ 'appointment.attendee_true' | trans }}
