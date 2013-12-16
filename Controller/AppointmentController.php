@@ -24,10 +24,6 @@ class AppointmentController extends Controller
 
         $entities = $em->getRepository('CLChillAppointmentBundle:Appointment')->findByPerson($person);
 
-        if (!$entities) {
-            throw $this->createNotFoundException('Unable to find Appointment for this Person.');
-        }
-
         return $this->render('CLChillAppointmentBundle:Appointment:listForPerson.html.twig', array(
             'person' => $person,
             'entities' => $entities,
@@ -49,7 +45,26 @@ class AppointmentController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this
+                ->get('session')
+                ->getFlashBag()
+                ->add('success', 
+                    $this
+                        ->get('translator')
+                        ->trans('views.appointment.form.create.success')
+                    );
+
             return $this->redirect($this->generateUrl('appointment_show', array('id' => $entity->getId())));
+        }
+        else {
+            $this
+                ->get('session')
+                ->getFlashBag()
+                ->add('danger', 
+                    $this
+                        ->get('translator')
+                        ->trans('views.appointment.form.create.error')
+                    );
         }
 
         return $this->render('CLChillAppointmentBundle:Appointment:newForPerson.html.twig', array(
@@ -186,7 +201,25 @@ class AppointmentController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('appointment_edit', array('id' => $id)));
+            $this
+                ->get('session')
+                ->getFlashBag()
+                ->add('success', 
+                    $this
+                        ->get('translator')
+                        ->trans('views.appointment.form.edit.success')
+                    );
+            return $this->redirect($this->generateUrl('appointment_show', array('id' => $id)));
+        }
+        else {
+            $this
+                ->get('session')
+                ->getFlashBag()
+                ->add('danger', 
+                    $this
+                        ->get('translator')
+                        ->trans('views.appointment.form.edit.error')
+                    );
         }
 
         return $this->render('CLChillAppointmentBundle:Appointment:edit.html.twig', array(
@@ -218,6 +251,25 @@ class AppointmentController extends Controller
         if ($form->isValid()) {
             $em->remove($appointment);
             $em->flush();
+
+            $this
+                ->get('session')
+                ->getFlashBag()
+                ->add('success', 
+                    $this
+                        ->get('translator')
+                        ->trans('views.appointment.form.delete.success')
+                    );
+        }
+        else {
+            $this
+            ->get('session')
+                ->getFlashBag()
+                ->add('success', 
+                    $this
+                        ->get('translator')
+                        ->trans('views.appointment.form.delete.error')
+                    );
         }
 
         return $this->redirect($this->generateUrl('appointment_list_for_person', array('id' => $idPerson)));
