@@ -22,6 +22,9 @@ class LoadAppointment extends AbstractFixture implements OrderedFixtureInterface
 
         $persons = $manager->getRepository('CLChillPersonBundle:Person')->findAll();
         $persons_nbr = count($persons);
+
+        $reasons = $manager->getRepository('CLChillAppointmentBundle:Reason')->findAll();
+        $reasons_nbr = count($reasons);
         
         $i = 0;
         
@@ -34,9 +37,9 @@ class LoadAppointment extends AbstractFixture implements OrderedFixtureInterface
                 'Date' => "1960-10-12",
                 'DurationTime' => "2:00",
                 'Attendee' => TRUE,
-                'Person' => ($persons[rand(0,$persons_nbr-1)])
+                'Person' => ($persons[rand(0,$persons_nbr-1)]),
+                'Reason' => ($reasons[rand(0,$reasons_nbr-1)])
             );
-
             $a = new Appointment();
 
             foreach ($appointment as $key => $value) {
@@ -48,6 +51,8 @@ class LoadAppointment extends AbstractFixture implements OrderedFixtureInterface
             	}
             	call_user_func(array($a, 'set'.$key), $value);
             }
+
+
             $manager->persist($a);
 
         } while ($i <= 500);     

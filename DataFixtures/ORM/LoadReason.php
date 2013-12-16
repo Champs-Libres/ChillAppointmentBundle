@@ -29,8 +29,8 @@ class LoadReason extends AbstractFixture implements OrderedFixtureInterface  {
             echo "r{$i} ";
             $i++;
 
-            $length = rand(2, 3);
-            $name = '';
+            $length = rand(1, 2);
+            $name = 'Reaso';
             for ($j = 0; $j <= $length; $j++) {
                 $name .= $this->names_trigrams[array_rand($this->names_trigrams)];
             }

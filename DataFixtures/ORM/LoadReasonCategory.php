@@ -25,8 +25,8 @@ class LoadReasonCategory extends AbstractFixture implements OrderedFixtureInterf
             echo "rc{$i} ";
             $i++;
 
-            $length = rand(2, 3);
-            $name = '';
+            $length = rand(1, 2);
+            $name = 'Catego';
             for ($j = 0; $j <= $length; $j++) {
                 $name .= $this->names_trigrams[array_rand($this->names_trigrams)];
             }
