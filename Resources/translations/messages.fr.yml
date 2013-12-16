@@ -4,6 +4,8 @@ appointment:
     durationTime: Durée de l'entretien
     remark: Remarque
     attendee: Présence
+    attendee_true: Oui
+    attendee_false: Non
     reason: Raison
     person: Personne
 

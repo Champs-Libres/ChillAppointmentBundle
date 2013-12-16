@@ -28,7 +28,13 @@
                     <td>{{ entity.durationTime|date('H:i') }}</td>
                     <td>{{ entity.remark }}</td>
                     <td>{{ entity.reason }}</td>
-                    <td>{{ entity.attendee }}</td>
+                    <td>
+                        {% if  entity.attendee %}
+                            {{ 'appointment.attendee_true' | trans }}
+                        {% else %}
+                            {{ 'appointment.attendee_false' | trans }}
+                        {% endif %}
+                    </td>
                     <td>
                         <ul>
                             <li>

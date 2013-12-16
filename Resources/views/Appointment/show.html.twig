@@ -29,7 +29,13 @@
             </tr>
             <tr>
                 <th>{{ 'appointment.attendee' | trans }}</th>
-                <td>{{ appointment.attendee }}</td>
+                <td>
+                    {% if  appointment.attendee %}
+                        {{ 'appointment.attendee_true' | trans }}
+                    {% else %}
+                        {{ 'appointment.attendee_false' | trans }}
+                    {% endif %}
+                </td>
             </tr>
         </tbody>
     </table>
