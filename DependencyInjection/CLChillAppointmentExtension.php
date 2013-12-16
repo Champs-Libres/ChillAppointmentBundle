@@ -34,12 +34,12 @@ class CLChillAppointmentExtension extends Extension implements PrependExtensionI
         $bundles = $container->getParameter('kernel.bundles');
         
         if (!isset($bundles['AsseticBundle'])) {
-            throw new Exception("You must use Assetic Bundle");
+            throw new \CL\Chill\MainBundle\DependencyInjection\MissingBundleException('AsseticBundle');
         }
         
         $asseticConfig = $container->getExtensionConfig('assetic');
-        //die(var_dump($asseticConfig));
         
+        //add current bundles to the last assetic.bundles configuration
         array_push($asseticConfig[0]['bundles'], 'CLChillAppointmentBundle');
         
         $config['bundles'] = $asseticConfig[0]['bundles'];
