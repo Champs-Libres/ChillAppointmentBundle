@@ -87,6 +87,7 @@ class AppointmentController extends Controller
         $person = $em->getRepository('CLChillPersonBundle:Person')->find($id);
 
         $entity = new Appointment();
+        $entity->setAttendee(true);
         $entity->setPerson($person);
         $form   = $this->createCreateForm($entity);
 
