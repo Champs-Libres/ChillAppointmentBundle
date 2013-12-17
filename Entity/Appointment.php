@@ -3,6 +3,7 @@
 namespace CL\Chill\AppointmentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use CL\Chill\MainBundle\Entity\Agent;
 
 /**
  * Appointment
@@ -15,7 +16,7 @@ class Appointment
     private $id;
 
     /**
-     * @var string
+     * @var \CL\Chill\MainBundle\Entity\Agent
      */
     private $agent;
 
@@ -56,7 +57,7 @@ class Appointment
      * @param string $agent
      * @return Appointment
      */
-    public function setAgent($agent)
+    public function setAgent(Agent $agent)
     {
         $this->agent = $agent;
     
@@ -66,7 +67,7 @@ class Appointment
     /**
      * Get agent
      *
-     * @return string 
+     * @return Agent 
      */
     public function getAgent()
     {

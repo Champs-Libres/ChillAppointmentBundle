@@ -7,9 +7,6 @@ CL\Chill\AppointmentBundle\Entity\Appointment:
             id: true
             generator:
                 strategy: AUTO
-        agent:
-            type: string
-            length: 255
         date:
             type: datetime
         durationTime:
@@ -25,4 +22,6 @@ CL\Chill\AppointmentBundle\Entity\Appointment:
             nullable: false
         person:
             targetEntity: CL\Chill\PersonBundle\Entity\Person
+        agent:
+            targetEntity: CL\Chill\MainBundle\Entity\Agent
     lifecycleCallbacks: {  }
