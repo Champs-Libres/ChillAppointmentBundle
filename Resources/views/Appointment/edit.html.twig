@@ -10,12 +10,12 @@
 
     {{ form_start(edit_form) }}
             
-	{{ form_row(edit_form.agent, { 'label' : 'appointment.agent'|trans }) }} 
 	{{ form_row(edit_form.date, { 'label' : 'appointment.date'|trans }) }}   
 	{{ form_row(edit_form.durationTime, { 'label' : 'appointment.durationTime'|trans }) }} 
         {{ form_row(edit_form.reason, { 'label' : 'appointment.reason'|trans }) }}
 	{{ form_row(edit_form.remark, { 'label' : 'appointment.remark'|trans }) }}
 	{{ form_row(edit_form.attendee, { 'label' : 'appointment.attendee'|trans }) }}
+    {{ form_row(edit_form.agent, { 'label' : 'appointment.agent'|trans }) }} 
 	
     {{ form_rest(edit_form) }}        
             
