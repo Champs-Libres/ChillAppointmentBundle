@@ -193,10 +193,13 @@ class Appointment
     {
         return $this->reason;
     }
+
     /**
      * @var \CL\Chill\PersonBundle\Entity\Person
      */
     private $person;
+
+    
 
 
     /**

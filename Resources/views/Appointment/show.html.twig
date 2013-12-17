@@ -25,11 +25,17 @@
             </tr>
             <tr>
                 <th>{{ 'appointment.reason' | trans }}</th>
-                <td>{{ appointment.reason }}</td>
+                <td>{{ appointment.reason.nameWithCategoryName }}</td>
             </tr>
             <tr>
                 <th>{{ 'appointment.attendee' | trans }}</th>
-                <td>{{ appointment.attendee }}</td>
+                <td>
+                    {% if  appointment.attendee %}
+                        {{ 'appointment.attendee_true' | trans }}
+                    {% else %}
+                        {{ 'appointment.attendee_false' | trans }}
+                    {% endif %}
+                </td>
             </tr>
         </tbody>
     </table>

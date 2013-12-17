@@ -9,14 +9,14 @@
 
 
 {{ form_start(form) }}
-            
-	{{ form_row(form.agent, { 'label' : 'appointment.agent'|trans }) }} 
-	{{ form_row(form.date, { 'label' : 'appointment.date'|trans }) }}   
-	{{ form_row(form.durationTime, { 'label' : 'appointment.durationTime'|trans }) }} 
+    
+    {{ form_row(form.date, { 'label' : 'appointment.date'|trans }) }}    
+    {{ form_row(form.durationTime, { 'label' : 'appointment.durationTime'|trans }) }}     
+    {{ form_row(form.reason, { 'label' : 'appointment.reason'|trans }) }}   	
 	{{ form_row(form.remark, { 'label' : 'appointment.remark'|trans }) }}
 	{{ form_row(form.attendee, { 'label' : 'appointment.attendee'|trans }) }}
-	{{ form_row(form.reason, { 'label' : 'appointment.reason'|trans }) }}
-
+    {{ form_row(form.agent, { 'label' : 'appointment.agent'|trans }) }} 
+	
 {{ form_rest(form) }}
             
             

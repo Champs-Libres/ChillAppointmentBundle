@@ -4,6 +4,8 @@ appointment:
     durationTime: Durée de l'entretien
     remark: Remarque
     attendee: Présence
+    attendee_true: Oui
+    attendee_false: Non
     reason: Raison
     person: Personne
 
@@ -19,3 +21,14 @@ views:
         appointment_list: Liste des entretiens
         appointment_edit: Modifier un entretien
         appointment_creation: Ajout d'un nouvel entretien
+        no_appointment: Il n'y a pas encore d'entretien pour cette personne.
+        form:
+            delete:
+                success: L'entretien a été supprimé.
+                error: L'entretien n'a pas été supprimé.
+            create:
+                success: L'entretien a été créé.
+                error: Attention certains champs ne sont pas remplis correctement. Veuillez les corriger afin que l'entretien puisse être créé.
+            edit:
+                success: L'entretien a été mis à jour.
+                error: Attention certains champs ne sont pas remplis correctement. Veuillez les corriger afin que l'entretien puisse être mis à jour.

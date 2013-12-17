@@ -6,41 +6,55 @@
 
     <h2>{{ 'views.appointment.appointment_list' | trans }}</h2>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>{{ 'appointment.agent' | trans }}</th>
-                <th>{{ 'appointment.date' | trans }}</th>
-                <th>{{ 'appointment.durationTime' | trans }}</th>
-                <th>{{ 'appointment.remark' | trans }}</th>
-                <th>{{ 'appointment.reason' | trans }}</th>
-                <th>{{ 'appointment.attendee' | trans }}</th>
-                <th>{{ 'views.Common.actions' | trans }}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td>{{ entity.agent }}</td>
-                <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i') }}{% endif %}</td>
-                <td>{{ entity.durationTime|date('H:i') }}</td>
-                <td>{{ entity.remark }}</td>
-                <td>{{ entity.reason }}</td>
-                <td>{{ entity.attendee }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('appointment_show', { 'id': entity.id }) }}">{{ 'views.Common.show' | trans }}</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('appointment_edit', { 'id': entity.id }) }}">{{ 'views.Common.edit' | trans }}</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        {% if entities %}
+
+        <table class="records_list">
+            <thead>
+                <tr>
+                    <th>{{ 'appointment.agent' | trans }}</th>
+                    <th>{{ 'appointment.date' | trans }}</th>
+                    <th>{{ 'appointment.durationTime' | trans }}</th>
+                    <th>{{ 'appointment.remark' | trans }}</th>
+                    <th>{{ 'appointment.reason' | trans }}</th>
+                    <th>{{ 'appointment.attendee' | trans }}</th>
+                    <th>{{ 'views.Common.actions' | trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>{{ entity.agent }}</td>
+                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i') }}{% endif %}</td>
+                    <td>{{ entity.durationTime|date('H:i') }}</td>
+                    <td>{{ entity.remark }}</td>
+                    <td>{{ entity.reason.nameWithCategoryName }}</td>
+                    <td>
+                        {% if  entity.attendee %}
+                            {{ 'appointment.attendee_true' | trans }}
+                        {% else %}
+                            {{ 'appointment.attendee_false' | trans }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('appointment_show', { 'id': entity.id }) }}">{{ 'views.Common.show' | trans }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('appointment_edit', { 'id': entity.id }) }}">{{ 'views.Common.edit' | trans }}</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% else %}
+
+        {{ 'views.appointment.no_appointment' | trans }}
+
+        {% endif %}
 
         <ul>
         <li>

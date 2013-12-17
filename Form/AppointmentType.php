@@ -19,14 +19,17 @@ class AppointmentType extends AbstractType
         $transformer = new PersonToIdTransformer($entityManager);
 
         $builder
-            ->add('agent')
             ->add('date', 'date', array('widget' => 'single_text', 'format' => 'dd-MM-yyyy'))
             ->add('durationTime', 'time')
-            ->add('remark', 'textarea', array('required' => false))
-            ->add('attendee', 'checkbox', array('required' => false))
             ->add('reason', 'entity', array(
                 'class' => 'CLChillAppointmentBundle:Reason',
-                'empty_value' => '', ))
+                'property' => 'name',
+                'group_by'=> 'categoryName',
+                'empty_value' => '',
+                ))
+            ->add('remark', 'textarea', array('required' => false))
+            ->add('attendee', 'checkbox', array('required' => false))
+            ->add('agent')
             ->add(
                 $builder->create('person', 'hidden')
                     ->addModelTransformer($transformer))   
